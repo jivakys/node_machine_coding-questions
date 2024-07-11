@@ -1,10 +1,12 @@
 const express = require("express");
 const { connection } = require("./db");
 const { userRouter } = require("./route");
+const logger = require("./logger");
 const app = express();
 
 app.use(express.json());
 
+app.use(logger);
 app.use("/user", userRouter);
 
 app.listen(4000, async () => {
