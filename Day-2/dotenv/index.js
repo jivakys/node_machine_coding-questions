@@ -8,7 +8,7 @@ app.use(express.json());
 const connection = mongoose.connect(MONGODB_URL);
 
 app.get("/", (req, res) => {
-  res.send("environment variables load using dotenv package.");
+  res.send("Environment variables load using dotenv package.");
 });
 
 app.listen(PORT, async () => {
