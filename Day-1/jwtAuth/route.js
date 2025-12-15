@@ -13,7 +13,6 @@ userRouter.post("/register", async (req, res) => {
 
     bcrypt.hash(password, 8, async function (err, hash) {
       if (err) {
-        // console.error("Error hashing password:", err);
         return res.status(500).send({ error: err.message });
       }
 
