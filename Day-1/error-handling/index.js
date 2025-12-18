@@ -7,9 +7,6 @@ require("dotenv").config();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Error Handling app");
-});
 app.use("/users", userRouter);
 
 // Handle undefined routes
