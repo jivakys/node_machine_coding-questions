@@ -10,10 +10,12 @@ app.get("/users", async (req, res) => {
   res.json(users);
 });
 
-db.getConnection()
-  .then(() => console.log("DB Connected Successfully ✅"))
-  .catch((err) => console.error(err.message));
-
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, async () => {
+  try {
+    await db.getConnection();
+    console.log("DB Connected Successfully ✅");
+  } catch (error) {
+    console.error(error.message);
+  }
   console.log(`Server running on port ${process.env.PORT}`);
 });
