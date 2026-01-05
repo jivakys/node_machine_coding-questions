@@ -24,9 +24,9 @@ productRouter.get("product/:id", async (req, res) => {
 productRouter.post("/newProduct", async (req, res) => {
   const payload = req.body;
   try {
-    const newUser = new productModel(payload);
-    await newUser.save();
-    res.status(200).send({ message: "New User Added", newUser });
+    const newProduct = new productModel(payload);
+    await newProduct.save();
+    res.status(200).send({ message: "New Product Added", newUser });
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
