@@ -34,16 +34,13 @@ app.put("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { name, email } = req.body;
-
     const [result] = await db.query(
       "UPDATE users SET name = ?, email = ? WHERE id = ?",
       [name, email, id]
     );
-
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: "User not found" });
     }
-
     res.json({ message: "User updated successfully" });
   } catch (err) {
     res.status(500).json({ error: err.message });
